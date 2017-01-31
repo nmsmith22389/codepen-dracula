@@ -1,0 +1,29 @@
+{
+  "name": "codepen-dracula",
+  "version": "0.1.0",
+  "description": "A dracula theme for codepen.io",
+  "main": "readme.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmsmith22389/codepen-dracula.git"
+  },
+  "author": "Neil Smith",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/nmsmith22389/codepen-dracula/issues"
+  },
+  "homepage": "https://github.com/nmsmith22389/codepen-dracula#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^3.7.0",
+    "gulp-util": "^3.0.8",
+    "stylelint": "^7.7.1",
+    "stylelint-order": "^0.2.2",
+    "stylelint-scss": "^1.4.1"
+  }
+}
