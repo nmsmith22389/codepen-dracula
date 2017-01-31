@@ -1,0 +1,356 @@
+/* Code/pen editor styles */
+
+// Color Palette
+$bg: #282a36;
+$selection: #44475a;
+$fg: #f8f8f2;
+$comment: #6272a4;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+
+.main-header {
+    box-shadow: none;
+
+    border: none;
+    background: $bg;
+}
+
+.pen-title-area .pen-title {
+    background: transparent;
+}
+
+body {
+    %layout {
+        .resizer {
+            box-shadow: none;
+
+            border: none;
+            background: $bg;
+
+            transition: background 0.25s ease;
+        }
+
+        .top-boxes {
+            .editor-resizer {
+                border: none;
+                background: $bg;
+
+                transition: background 0.25s ease;
+            }
+
+            &:hover {
+                .editor-resizer {
+                    background: $selection;
+                }
+            }
+        }
+    }
+
+    &.layout-top {
+        @extend %layout;
+
+        .resizer {
+            height: 6px;
+        }
+
+        .top-boxes {
+            .editor-resizer {
+                border: {
+                    right: 1px solid $bg;
+                    left: 1px solid $bg;
+                }
+            }
+        }
+
+        .ces__resize-bar {
+            border: none;
+            background: $bg;
+        }
+    }
+
+    &.layout-side {
+        @extend %layout;
+
+        .resizer {
+            width: 6px;
+        }
+    }
+
+    .resizer:hover {
+        background: $comment;
+    }
+}
+
+.site-footer {
+    border: none;
+    background: $bg;
+    color: $pink; /* Last updated text color */
+}
+
+.box-title {
+    color: $cyan;
+
+    &::after {
+        color: $purple;
+    }
+}
+
+.pen-title-area .pen-title-link {
+    color: $green;
+}
+
+.unsaved {
+    #save,
+    #update {
+        color: $yellow;
+
+        &::after {
+            background: $yellow;
+        }
+    }
+}
+
+.button-editor-outline {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+
+    &:hover {
+        background: $selection;
+    }
+}
+
+.button-editor-solid {
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+
+    &:hover {
+        background: $selection;
+    }
+}
+
+#mini-personal-avatar,
+#mini-team-avatar {
+    border: 3px solid $pink;
+    border-radius: 100em;
+}
+
+.button-medium,
+.button-dark {
+    background: $selection;
+
+    &:hover {
+        background: $comment;
+    }
+}
+
+.button.roll-red:not([disabled]) {
+    &:hover,
+    &:focus {
+        background: $red;
+    }
+}
+
+.collections-select {
+    background: url(https://production-assets.codepen.io/assets/buttons/arrow-tiny-down-white-cd748d5e97310942356ea8298bca9b344350441cffed1a653c89551258a76b3a.png) 93% 7px no-repeat, $selection !important;
+
+    &:hover {
+        background: url(https://production-assets.codepen.io/assets/buttons/arrow-tiny-down-white-cd748d5e97310942356ea8298bca9b344350441cffed1a653c89551258a76b3a.png) 93% 7px no-repeat, $comment !important;
+    }
+}
+
+.CodeMirror-simplescroll-horizontal,
+.CodeMirror-simplescroll-vertical {
+    div {
+        background: $comment;
+    }
+}
+
+.CodeMirror-cursor {
+    // border-left-width: 0.625em; 
+    border-left-width: 2px;
+
+    opacity: 0.75;
+}
+
+.modal.modal-neutral {
+    border: none;
+    border-radius: 6px;
+    background: $bg;
+}
+
+.command,
+.command-no-mod {
+    margin-right: 5px;
+
+    color: $orange;
+}
+
+#keycommands h2 {
+    border-color: $fg;
+    color: $pink;
+}
+
+.editor a {
+    color: $cyan;
+}
+
+.sharing-panel,
+.export-panel,
+.pen-settings-modal,
+.view-switcher,
+.editor-dropdown,
+.pen-details-when-dropdown {
+    border-radius: 5px;
+    background: $bg;
+    color: $fg;
+}
+
+.settings-modal-left {
+    color: $fg;
+}
+
+.settings-row {
+    color: $fg;
+}
+
+.help-flyout {
+    border: none;
+    border-radius: 5px;
+    background: $selection;
+
+    &-link {
+        .icon-help {
+            fill: $comment;
+
+            &:hover,
+            &:focus {
+                fill: $purple;
+            }
+        }
+
+        .icon-x {
+            fill: $pink;
+        }
+    }
+
+    &::before {
+        visibility: hidden;
+    }
+}
+
+.pen-settings-modal {
+    .explore-tabs a {
+        &.active {
+            color: $green;
+        }
+
+        &:hover,
+        &:focus {
+            // TODO: Add auto lightening on hover and transitions for all hover actions! 
+            color: $fg;
+        }
+    }
+}
+
+.settings-modal {
+    &-right {
+        border-radius: 0 5px 5px 0;
+        background: $fg;
+        color: $bg;
+    }
+
+    &-left {
+        &::-webkit-scrollbar-thumb {
+            background: $comment;
+        }
+
+        a {
+            border: 3px solid transparent !important;
+        }
+    }
+}
+
+[type='name'],
+[type='text'],
+[type='email'],
+[type='password'],
+[type='search'],
+[type='url'],
+[type='tel'],
+[type='number'],
+textarea {
+    border-radius: 5px;
+
+    .settings-modal-left & {
+        border: none;
+    }
+}
+
+.add-ons {
+    &-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    &-container {
+        background: $selection;
+    }
+
+    &-list {
+        background: inherit;
+
+        li:hover {
+            background: $comment;
+        }
+    }
+}
+
+input[type='text'].add-ons-filter {
+    background: inherit !important;
+}
+
+// FIXME: add hover style
+// FIXME: fix border-bottom problem on links
+.button.green,
+.green.file-upload-button,
+.gsc-cursor-page.green {
+    background: $green;
+    color: $bg;
+}
+
+.share-buttons,
+.share-actions {
+    .button {
+        color: $fg;
+
+        &:hover,
+        &:focus {
+            background: $selection;
+            color: $fg;
+        }
+
+        svg {
+            fill: $fg;
+        }
+    }
+}
+
+.send-to-phone h5 svg {
+    fill: $fg;
+}
+
+.console-message {
+    border: none;
+}
+
+.create-dropdown,
+.user-dropdown,
+.pen-templates-dropdown,
+.activity-dropdown,
+.priority-nav__dropdown {
+    border-radius: 3px;
+    background: $selection;
+}
